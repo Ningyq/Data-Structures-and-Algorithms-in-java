@@ -42,6 +42,21 @@ public class PersonArray {
         }
     }
 
+    public void insertionSort() {
+        int in, out;
+
+        for (out = 1; out < nElems; out++) {
+            Person temp = arr[out];
+            in = out;
+
+            while (in > 0 && arr[in-1].getLastName().compareTo(temp.getLastName()) > 0) {
+                arr[in] = arr[in-1];
+                --in;
+            }
+            arr[in] = temp;
+        }
+    }
+
     public void displayArray() {
         for (int i = 0; i < nElems; i++) {
             arr[i].displayPerson();

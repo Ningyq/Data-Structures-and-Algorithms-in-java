@@ -18,6 +18,12 @@ public class PersonArrayApp {
         arr.insert("Vang", "Minh", 22);
         arr.insert("Creswell", "Lucida", 18);
 
+        System.out.println("Before sorting: ");
+        arr.displayArray();
+
+        arr.insertionSort();
+
+        System.out.println("After sorting: ");
         arr.displayArray();
 
         String searchKey = "Stimson";

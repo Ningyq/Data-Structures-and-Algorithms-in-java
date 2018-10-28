@@ -1,3 +1,5 @@
+package StackAndQueue;
+
 import java.io.IOException;
 
 public class PriorityQueueApp {

@@ -1,3 +1,5 @@
+package StackAndQueue;
+
 public class PriorityQueue {
     private int maxSize;
     private long[] queueArray;

@@ -1,18 +1,20 @@
+package StackAndQueue;
+
 public class InToPost {
-    private StackChar stackChar;
+    private StackChara stackChara;
     private String input;
     private String output = "";
 
     public InToPost(String input) {
         this.input = input;
         int stackSize = input.length();
-        stackChar = new StackChar(stackSize);
+        stackChara = new StackChara(stackSize);
     }
 
     public String doTrans() {
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
-            stackChar.displayStack("For " + ch + " ");
+            stackChara.displayStack("For " + ch + " ");
             switch (ch) {
                 case '+':
                 case '-':
@@ -23,7 +25,7 @@ public class InToPost {
                     gotOper(ch, 2);
                     break;
                 case '(':
-                    stackChar.push(ch);
+                    stackChara.push(ch);
                     break;
                 case ')':
                     gotParen(ch);
@@ -33,17 +35,17 @@ public class InToPost {
                     break;
             }
         }
-        while (!stackChar.isEmpty()) {
-            stackChar.displayStack("While ");
-            output = output + stackChar.pop();
+        while (!stackChara.isEmpty()) {
+            stackChara.displayStack("While ");
+            output = output + stackChara.pop();
         }
-        stackChar.displayStack("End  ");
+        stackChara.displayStack("End  ");
         return output;
     }
 
     private void gotParen(char ch) {
-        while (!stackChar.isEmpty()) {
-            char chx = stackChar.pop();
+        while (!stackChara.isEmpty()) {
+            char chx = stackChara.pop();
             if (chx == '(')
                 break;
             else
@@ -52,10 +54,10 @@ public class InToPost {
     }
 
     private void gotOper(char opThis, int prec1) {
-        while (!stackChar.isEmpty()) {
-            char opTop = stackChar.pop();
+        while (!stackChara.isEmpty()) {
+            char opTop = stackChara.pop();
             if (opTop == '(') {
-                stackChar.push(opTop);
+                stackChara.push(opTop);
                 break;
             }
             else {
@@ -66,13 +68,13 @@ public class InToPost {
                 else
                     prec2 = 2;
                 if (prec2 < prec1) {
-                    stackChar.push(opTop);
+                    stackChara.push(opTop);
                     break;
                 } else {
                     output = output + opTop;
                 }
             }
         }
-        stackChar.push(opThis);
+        stackChara.push(opThis);
     }
 }

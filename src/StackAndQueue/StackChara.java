@@ -1,9 +1,11 @@
-public class StackChar {
+package StackAndQueue;
+
+public class StackChara {
     private int maxSize;
     private char[] stackArray;
     private int top;
 
-    public StackChar(int maxSize) {
+    public StackChara(int maxSize) {
         this.maxSize = maxSize;
         stackArray = new char[maxSize];
         top = -1;
